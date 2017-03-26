@@ -1,0 +1,67 @@
+package sk.garwan.todo.web.model;
+
+import javax.validation.constraints.Size;
+
+import org.springmodules.validation.bean.conf.loader.annotation.handler.NotEmpty;
+
+/**
+ * 
+ * Model for login (LoginController)
+ * 
+ * @author Pavol Dobias
+ * 
+ */
+public class LoginForm {
+
+	/**
+	 * constructor 
+	 */
+	public LoginForm() {
+		super();
+	}
+
+	/**
+	 * username
+	 */
+	@NotEmpty
+	@Size(min = 1, max = 50)
+	private String username;
+
+	/**
+	 *  password
+	 */
+	@NotEmpty
+	@Size(min = 1, max = 50)
+	private String password;
+	
+	/**
+	 * @return the username
+	 */
+	public String getUsername() {
+		return username;
+	}
+
+	/**
+	 * @param username
+	 *            the username to set
+	 */
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * @param password
+	 *            the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+}

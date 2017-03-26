@@ -1,0 +1,33 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+    <security:global-method-security secured-annotations="enabled" />
+    
+    <security:http auto-config="true">
+        <!-- Restrict URLs based on role -->
+        <security:intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/logout*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/notes/*" access="ROLE_USER" />
+        <security:intercept-url pattern="/css/main.css" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        
+          <!-- Override default login and logout pages -->
+        <security:form-login login-page="/login.html" 
+                             default-target-url="/notes/list" 
+                             authentication-failure-url="/loginfailed" />
+        <security:logout logout-success-url="/logout.html" />
+    </security:http>
+
+	<authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<user name="a" password="a" authorities="ROLE_USER" />
+				<user name="test" password="test" authorities="ROLE_USER" />
+			</user-service>
+		</authentication-provider>
+	</authentication-manager>
+
+</beans:beans>
