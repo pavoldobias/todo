@@ -4,6 +4,7 @@
 	<groupId>todo-dao</groupId>
 	<artifactId>todo-dao</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -91,10 +92,12 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	<name>todo DAO layer</name>
+	<name>Todo DAO layer</name>
+
 	<parent>
-		<groupId>com.garwan.todo</groupId>
-		<artifactId>garwan</artifactId>
+		<groupId>sk.garwan.todo</groupId>
+		<artifactId>todo</artifactId>
 		<version>0.9.2-SNAPSHOT</version>
 	</parent>
+
 </project>
